@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejador de Rotas de Entrega</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Planejador de Rotas de Entrega</h1>
+        
+        <div class="api-key-section">
+            <label for="api-key">Insira sua Chave API do Google Maps:</label>
+            <input type="text" id="api-key" placeholder="Sua chave API aqui">
+            <button id="load-map">Carregar Mapa</button>
+        </div>
+        
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        
+        <div class="controls">
+            <div class="input-group">
+                <label for="origin">Origem:</label>
+                <input type="text" id="origin" placeholder="Endereço de partida">
+            </div>
+            
+            <div class="waypoints">
+                <h3>Pontos de Entrega</h3>
+                <div id="waypoints-container">
+                    <div class="waypoint">
+                        <input type="text" class="waypoint-input" placeholder="Endereço de entrega">
+                        <button class="remove-waypoint">×</button>
+                    </div>
+                </div>
+                <button id="add-waypoint">+ Adicionar Ponto</button>
+            </div>
+            
+            <div class="input-group">
+                <label for="travel-mode">Modo de transporte:</label>
+                <select id="travel-mode">
+                    <option value="DRIVING">Carro</option>
+                    <option value="WALKING">A pé</option>
+                    <option value="BICYCLING">Bicicleta</option>
+                    <option value="TRANSIT">Transporte público</option>
+                </select>
+            </div>
+            
+            <button id="calculate-route">Calcular Rota</button>
+            <button id="clear-route">Limpar Rota</button>
+        </div>
+        
+        <div id="directions-panel"></div>
+    </div>
+
+    <!-- Carrega a API do Google Maps de forma assíncrona -->
+    <script src="script.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRz-aXLFVAGWJU9y1NG8p3hunc3bSpppg&callback=initMap&libraries=places,directions">
+    </script>
+</body>
+</html>
